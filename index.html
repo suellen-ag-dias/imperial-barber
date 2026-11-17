@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#151515">
+  <meta name="description" content="Imperial Barber — Sistema de agendamento online.">
+  <title>Imperial Barber</title>
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app-shell">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Imperial Barber - início" data-nav="home">
+        <div class="brand-mark">
+          <span>IB</span>
+          <i>✦</i>
+        </div>
+        <strong>IMPERIAL</strong>
+        <small>BARBER</small>
+        <span class="brand-line">TRADIÇÃO & CORTE</span>
+      </a>
+
+      <div class="sidebar-user" id="sidebarUser">
+        <div class="avatar" id="userAvatar">C</div>
+        <div>
+          <strong id="sidebarName">Visitante</strong>
+          <small>Painel do cliente</small>
+        </div>
+      </div>
+
+      <nav class="nav-list" aria-label="Navegação principal">
+        <button class="nav-link active" data-nav="home">
+          <span>⌂</span> Início
+        </button>
+        <button class="nav-link" data-nav="booking">
+          <span>▦</span> Agendar horário
+        </button>
+        <button class="nav-link" data-nav="appointments">
+          <span>◷</span> Meus agendamentos
+        </button>
+        <button class="nav-link" data-nav="services">
+          <span>✂</span> Serviços
+        </button>
+        <button class="nav-link" data-nav="about">
+          <span>ⓘ</span> A barbearia
+        </button>
+        <button class="nav-link" data-nav="reviews">
+          <span>★</span> Avaliações
+        </button>
+      </nav>
+
+      <button class="nav-link logout-link" id="logoutBtn">
+        <span>⇥</span> Sair
+      </button>
+
+      <p class="sidebar-footer">© <span id="year"></span> Imperial Barber</p>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-area">
+      
+      <!-- Mobile Topbar -->
+      <header class="mobile-header">
+        <button class="icon-button" id="menuToggle" aria-label="Abrir menu">☰</button>
+        <span class="mobile-brand">IMPERIAL <b>BARBER</b></span>
+        <div class="avatar small-avatar" id="mobileAvatar">C</div>
+      </header>
+
+      <!-- Home -->
+      <section class="page active" id="page-home">
+        <div class="topbar">
+          <div>
+            <span class="eyebrow">SEJA BEM-VINDO</span>
+            <h1>Pronto para o <em>corte?</em></h1>
+            <p class="lead">Qualidade e atendimento de ponta para o seu dia a dia.</p>
+          </div>
+          <div class="user-greeting">
+            Olá, <strong id="greetingName">Cliente</strong> <span>✦</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-content">
+            <span class="eyebrow gold">AGENDA ONLINE</span>
+            <h2>Seu visual em <em>boas mãos.</em></h2>
+            <p>Escolha o serviço desejado e garanta seu horário de forma rápida.</p>
+            <button class="btn btn-gold" data-nav="booking">
+              Fazer agendamento <span>→</span>
+            </button>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="hero-ring"></div>
+            <div class="hero-monogram">IB</div>
+            <span class="hero-scissors">✂</span>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">ATALHOS</span>
+            <h2>Acesso rápido</h2>
+          </div>
+        </div>
+
+        <div class="quick-grid">
+          <button class="quick-card" data-nav="booking">
+            <span class="quick-icon">▦</span>
+            <strong>Novo agendamento</strong>
+            <small>Selecione dia e horário</small>
+            <b>→</b>
+          </button>
+          <button class="quick-card" data-nav="appointments">
+            <span class="quick-icon">◷</span>
+            <strong>Meus horários</strong>
+            <small>Ver reservas ativas</small>
+            <b>→</b>
+          </button>
+          <button class="quick-card" data-nav="services">
+            <span class="quick-icon">✂</span>
+            <strong>Nossos serviços</strong>
+            <small>Tabela de preços</small>
+            <b>→</b>
+          </button>
+          <button class="quick-card" data-nav="reviews">
+            <span class="quick-icon">★</span>
+            <strong>Avaliações</strong>
+            <small>O que dizem os clientes</small>
+            <b>→</b>
+          </button>
+        </div>
+
+        <div class="bottom-note">
+          <span>✦</span>
+          <p><strong>Aviso:</strong> Pedimos a gentileza de chegar com 5 minutos de antecedência do horário marcado.</p>
+        </div>
+      </section>
+
+      <!-- Booking -->
+      <section class="page" id="page-booking">
+        <div class="page-heading">
+          <button class="back-link" data-nav="home">← Voltar</button>
+          <span class="eyebrow">NOVA RESERVA</span>
+          <h1>Agendar <em>horário</em></h1>
+          <p class="lead">Selecione a data, o horário e o serviço ideal para você.</p>
+        </div>
+
+        <div class="booking-layout">
+          <article class="panel calendar-panel">
+            <div class="panel-title">
+              <span class="panel-icon">▦</span>
+              <div>
+                <h2>Data</h2>
+                <small>Escolha o dia</small>
+              </div>
+            </div>
+            <div class="calendar-head">
+              <button class="icon-button" id="prevMonth" aria-label="Mês anterior">‹</button>
+              <strong id="monthLabel"></strong>
+              <button class="icon-button" id="nextMonth" aria-label="Próximo mês">›</button>
+            </div>
+            <div class="calendar-grid weekdays">
+              <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span>
+            </div>
+            <div class="calendar-grid" id="calendarDays"></div>
+            <p class="helper-text">Vagas sujeitas à lotação da agenda.</p>
+          </article>
+
+          <article class="panel time-panel">
+            <div class="panel-title">
+              <span class="panel-icon">◷</span>
+              <div>
+                <h2>Horário</h2>
+                <small id="selectedDateLabel">Selecione uma data</small>
+              </div>
+            </div>
+            <div class="slots-grid" id="timeSlots">
+              <p class="empty-hint">Clique em um dia no calendário ao lado.</p>
+            </div>
+          </article>
+
+          <article class="panel service-panel">
+            <div class="panel-title">
+              <span class="panel-icon">✂</span>
+              <div>
+                <h2>Serviço</h2>
+                <small>O que vamos fazer?</small>
+              </div>
+            </div>
+
+            <label class="field-label" for="serviceSelect">Escolha o serviço</label>
+            <select id="serviceSelect" class="field"></select>
+
+            <div class="service-description" id="serviceDescription"></div>
+            
+            <div class="price-line">
+              <span>Valor</span>
+              <strong id="servicePrice">—</strong>
+            </div>
+
+            <div class="booking-summary" id="bookingSummary">
+              <span class="summary-check">✓</span>
+              <div>
+                <small>RESUMO</small>
+                <strong id="summaryText">Faltam informações para concluir.</strong>
+              </div>
+            </div>
+
+            <button class="btn btn-gold full-width" id="confirmBooking">
+              Confirmar agendamento <span>→</span>
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <!-- Confirmation -->
+      <section class="page" id="page-confirmation">
+        <div class="confirmation-wrap">
+          <div class="success-symbol">✓</div>
+          <span class="eyebrow gold">PRONTO!</span>
+          <h1>Horário <em>reservado.</em></h1>
+          <p class="lead">Tudo certo com o seu agendamento.</p>
+          
+          <div class="confirmation-card" id="confirmationDetails"></div>
+          
+          <button class="btn btn-gold full-width" data-nav="appointments">Ver meus agendamentos</button>
+          <button class="btn btn-outline full-width" data-nav="home">Ir para o início</button>
+        </div>
+      </section>
+
+      <!-- Appointments -->
+      <section class="page" id="page-appointments">
+        <div class="page-heading">
+          <span class="eyebrow">MEUS HORÁRIOS</span>
+          <h1>Meus <em>agendamentos</em></h1>
+          <p class="lead">Gerencie suas próximas reservas por aqui.</p>
+        </div>
+        <div id="appointmentsList" class="appointment-list"></div>
+      </section>
+
+      <!-- Services -->
+      <section class="page" id="page-services">
+        <div class="page-heading">
+          <span class="eyebrow">TABELA</span>
+          <h1>Nossos <em>serviços</em></h1>
+          <p class="lead">Conheça o que oferecemos para o seu cuidado.</p>
+        </div>
+        <div class="service-grid" id="servicesGrid"></div>
+        <button class="btn btn-gold" data-nav="booking">Agendar horário <span>→</span></button>
+      </section>
+
+      <!-- About -->
+      <section class="page" id="page-about">
+        <div class="page-heading">
+          <span class="eyebrow">A BARBEARIA</span>
+          <h1>Sobre o <em>espaço</em></h1>
+          <p class="lead">Tradição, bom papo e qualidade em um só lugar.</p>
+        </div>
+        <div class="about-card">
+          <div class="about-emblem">IB<span>✦</span></div>
+          <div>
+            <h2>Imperial Barber</h2>
+            <p>Trabalhamos com foco na excelência de cada corte e barba. Nosso ambiente foi pensado para que você possa relaxar enquanto cuida do visual.</p>
+            <p>Venha tomar um café conosco e conhecer nosso espaço.</p>
+            <div class="about-values">
+              <span>✦ Profissionais qualificados</span>
+              <span>✦ Ambiente climatizado</span>
+              <span>✦ Produtos de primeira linha</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews -->
+      <section class="page" id="page-reviews">
+        <div class="page-heading">
+          <span class="eyebrow">AVALIAÇÕES</span>
+          <h1>O que achou do <em>atendimento?</em></h1>
+          <p class="lead">Deixe seu comentário e sua nota para nos ajudar a melhorar.</p>
+        </div>
+
+        <div class="review-layout">
+          <form class="panel review-form" id="reviewForm">
+            <h2>Escrever avaliação</h2>
+            
+            <label class="field-label">Nota</label>
+            <div class="rating-picker" id="ratingPicker" role="group" aria-label="Escolha uma nota">
+              <button type="button" data-rating="1" aria-label="1 estrela">★</button>
+              <button type="button" data-rating="2" aria-label="2 estrelas">★</button>
+              <button type="button" data-rating="3" aria-label="3 estrelas">★</button>
+              <button type="button" data-rating="4" aria-label="4 estrelas">★</button>
+              <button type="button" data-rating="5" aria-label="5 estrelas">★</button>
+            </div>
+
+            <label class="field-label" for="reviewText">Mensagem</label>
+            <textarea id="reviewText" class="field" rows="4" maxlength="500" placeholder="Escreva seu comentário..." required></textarea>
+            
+            <button class="btn btn-gold full-width" type="submit">Enviar feedback</button>
+            <p class="form-message" id="reviewMessage" aria-live="polite"></p>
+          </form>
+
+          <div>
+            <div class="section-heading">
+              <div>
+                <span class="eyebrow">MURAL</span>
+                <h2>Últimas avaliações</h2>
+              </div>
+            </div>
+            <div id="reviewsList" class="reviews-list"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Auth Overlay -->
+  <div class="auth-overlay" id="authOverlay">
+    <div class="auth-card">
+      <div class="auth-brand">
+        <div class="brand-mark"><span>IB</span><i>✦</i></div>
+        <strong>IMPERIAL</strong>
+        <small>BARBER</small>
+        <span class="brand-line">TRADIÇÃO & CORTE</span>
+      </div>
+
+      <!-- Login Form -->
+      <div id="loginPanel">
+        <span class="eyebrow">IDENTIFICAÇÃO</span>
+        <h1>Acesse sua <em>conta.</em></h1>
+        <p class="auth-subtitle">Digite seus dados para entrar.</p>
+        
+        <form id="loginForm">
+          <label class="field-label" for="loginEmail">E-mail</label>
+          <input class="field" id="loginEmail" type="email" autocomplete="username" placeholder="seu@email.com" required>
+          
+          <label class="field-label" for="loginPassword">Senha</label>
+          <input class="field" id="loginPassword" type="password" autocomplete="current-password" placeholder="Sua senha" minlength="4" required>
+          
+          <button class="btn btn-gold full-width" type="submit">Entrar <span>→</span></button>
+          <p class="form-message" id="loginMessage" aria-live="polite"></p>
+        </form>
+
+        <p class="auth-switch">Não tem cadastro? <button id="showRegister">Criar conta</button></p>
+        <p class="demo-note">Cadastre um e-mail rápido para testar o sistema.</p>
+      </div>
+
+      <!-- Register Form -->
+      <div id="registerPanel" hidden>
+        <span class="eyebrow">CADASTRO</span>
+        <h1>Crie seu <em>acesso.</em></h1>
+        <p class="auth-subtitle">Preencha os campos abaixo.</p>
+        
+        <form id="registerForm">
+          <label class="field-label" for="registerName">Nome</label>
+          <input class="field" id="registerName" type="text" autocomplete="name" minlength="2" placeholder="Seu nome" required>
+          
+          <label class="field-label" for="registerEmail">E-mail</label>
+          <input class="field" id="registerEmail" type="email" autocomplete="email" placeholder="seu@email.com" required>
+          
+          <label class="field-label" for="registerPassword">Senha</label>
+          <input class="field" id="registerPassword" type="password" autocomplete="new-password" minlength="4" placeholder="Mínimo 4 caracteres" required>
+          
+          <button class="btn btn-gold full-width" type="submit">Cadastrar <span>→</span></button>
+          <p class="form-message" id="registerMessage" aria-live="polite"></p>
+        </form>
+
+        <p class="auth-switch">Já possui cadastro? <button id="showLogin">Fazer login</button></p>
+      </div>
+
+      <p class="auth-legal">Ambiente de testes local.</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

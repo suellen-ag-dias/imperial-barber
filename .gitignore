@@ -1,0 +1,18 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs e arquivos temporários
+*.log
+npm-debug.log*
+
+# Dependências e builds (não são usados neste projeto estático)
+node_modules/
+dist/
+build/
